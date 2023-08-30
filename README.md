@@ -10,7 +10,7 @@ This is a template proyect for a delivery app developed on flutter 3.7.0 with da
 
 
 ## Requirements:
-- flutter 3.7.0: https://storage.googleapis.com/flutter_infra_release/releases/stable/windows/flutter_windows_3.7.0-stable.zip
+- flutter 3.7.0: <a href='https://storage.googleapis.com/flutter_infra_release/releases/stable/windows/flutter_windows_3.7.0-stable.zip'>https://flutter/windows/fultter_stable_3.7.0</a>
 - node.js: https://nodejs.org/es
 - PostgreSQL: https://www.enterprisedb.com/downloads/postgres-postgresql-downloads
 - Android Studio Giraffe: https://developer.android.com/studio 
