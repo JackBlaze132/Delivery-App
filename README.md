@@ -9,8 +9,15 @@ This is a template proyect for a delivery app developed on flutter 3.7.0 with da
 
 
 
-## Requirements:
+## Requirements
 - flutter 3.7.0: <a href='https://storage.googleapis.com/flutter_infra_release/releases/stable/windows/flutter_windows_3.7.0-stable.zip'>https://flutter/windows/fultter_stable_3.7.0</a>
 - node.js: https://nodejs.org/es
 - PostgreSQL: https://www.enterprisedb.com/downloads/postgres-postgresql-downloads
 - Android Studio Giraffe: https://developer.android.com/studio 
+
+## Usage
+to run the main interface, open the project on Android studio and use the comand
+```
+pub get
+```
+then run the main.dart file via debugger on android Studio
