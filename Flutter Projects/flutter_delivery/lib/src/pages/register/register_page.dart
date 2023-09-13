@@ -145,7 +145,7 @@ class _RegisterPageState extends State<RegisterPage> {
         color: CustomColors.primaryColorField
       ),
       child: TextField(
-        controller: _con.lastNameController,
+        controller: _con.lastnameController,
         decoration: InputDecoration(
           hintText: 'Apellidos',
           border: InputBorder.none,

@@ -1,4 +1,4 @@
-const db = require('../config/config');
+const db = require("../config/config");
 
 const User = {}
 
@@ -18,16 +18,16 @@ User.create = (user) => {
             phone,
             image,
             password,
-            create_at,
+            created_at,
             updated_at
         )
-    VALUES($1, $2, $3, $4, $5, $6, $7, $8) RETURNIG id
+    VALUES($1, $2, $3, $4, $5, $6, $7, $8) RETURNING id
     `;
 
     return db.oneOrNone(sql, [
         user.email,
         user.name,
-        user.lasname,
+        user.lastname,
         user.phone,
         user.image,
         user.password,
