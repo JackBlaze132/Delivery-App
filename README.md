@@ -16,13 +16,17 @@ This is a template proyect for a delivery app developed on flutter 3.7.0 with da
 - Android Studio Giraffe: https://developer.android.com/studio 
 
 ## Usage
-to run the main interface, open the project on Android studio and use the comand
+To run the main interface, open the project on Android studio and use the comand
 ```
 flutter pub get
 ```
-then run the main.dart file via debugger on android Studio  or use the command
+Then run the main.dart file via debugger on android Studio  or use the command
 ```
 flutter run
+```
+Finally open the ```node project/backenddelivery/``` on VS Code and open the terminal and run the command
+```
+node server.js
 ```
 ##  
 In order to test the application you most change the IP value in the files:
