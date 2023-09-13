@@ -18,6 +18,17 @@ This is a template proyect for a delivery app developed on flutter 3.7.0 with da
 ## Usage
 to run the main interface, open the project on Android studio and use the comand
 ```
-pub get
+flutter pub get
 ```
-then run the main.dart file via debugger on android Studio
+then run the main.dart file via debugger on android Studio  or use the command
+```
+flutter run
+```
+##  
+In order to test the application you most change the IP value in the files:
+```
+flutter project/flutter_delivery/src/api/environmet.dart
+```
+```
+node project/backenddelivery/server.js
+```
