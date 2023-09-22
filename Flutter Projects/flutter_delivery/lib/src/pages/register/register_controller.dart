@@ -42,11 +42,6 @@ class RegisterController{
     ResponseApi responseApi = await usersProvider.create(user);
 
     print('Respuesta: ${responseApi.toJson()}');
-    print(email);
-    print(name);
-    print(lastname);
-    print(phone);
-    print(password);
-    print(confirmPassword);
+
   }
 }

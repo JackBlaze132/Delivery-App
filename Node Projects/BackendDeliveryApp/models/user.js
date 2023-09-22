@@ -1,3 +1,4 @@
+const passport = require("passport");
 const db = require("../config/config");
 
 const User = {}
@@ -5,6 +6,26 @@ const User = {}
 User.getAll = () => {
     const sql = `SELECT * FROM users`;
     return db.manyOrNone(sql);
+}
+
+User.findById = (id, callback) => {
+    const sql = `
+    SELECT
+        id,
+        email, 
+        name,
+        lastname,
+        image,
+        phone,
+        password,
+        session_token
+    FROM
+        users
+    WHERE
+        id = $1`;
+
+    return db.oneOrNone(sql,id),then(user => { callback(null, user); })
+    
 }
 
 User.create = (user) => {
