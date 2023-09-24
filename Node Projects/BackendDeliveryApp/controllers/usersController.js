@@ -38,4 +38,17 @@ module.exports = {
         });
         }
     },
+
+    async login(req, res, next){
+        try {
+            const email = req.body.email;
+            const password = req.body.password;
+
+        } catch (error){
+            console.log(`Error:${error}`);
+            return res.status(501).json({
+                success: false,
+                message:"Error al momento de hacer login",
+                error: error,
+            });
 }
