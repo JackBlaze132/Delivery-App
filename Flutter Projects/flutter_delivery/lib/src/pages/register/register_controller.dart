@@ -61,4 +61,8 @@ class RegisterController{
     
     print('Respuesta: ${responseApi.toJson()}');
   }
+
+  void  goToLoginPage(){
+    Navigator.pushNamed(context, 'login');
+  }
 }
