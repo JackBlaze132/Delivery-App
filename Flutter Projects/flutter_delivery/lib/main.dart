@@ -52,7 +52,9 @@ class _MyAppState extends State<MyApp> {
           'delivery/orders/list': (BuildContext context) => DeliveryOrdersListPage()
         },
         theme: ThemeData(
-            primaryColor: CustomColors.primaryColor
+          colorScheme: ColorScheme.light(
+              primary: CustomColors.primaryColor
+          ),
         )
     );
   }
