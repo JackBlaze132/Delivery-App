@@ -32,21 +32,6 @@ class RegisterController{
     String password = passwordController.text.trim();
     String confirmPassword = confirmPasswordController.text.trim();
 
-    if (email.isEmpty || name.isEmpty || lastname.isEmpty ||
-        phone.isEmpty || password.isEmpty || confirmPassword.isEmpty) {
-      Mysnackbar.show(context, 'Debes ingresar todos los campos');
-      return;
-      }
-
-    if (confirmPassword != password){
-      Mysnackbar.show(context, 'Las contraseñas no coinciden');
-      return;
-    }
-    if (password.length < 6){
-      Mysnackbar.show(context, 'Las contraseñas deben tener al menos 6 caracteres');
-      return;
-    }
-
     User user = new User(
       email: email,
       name: name,
@@ -59,13 +44,9 @@ class RegisterController{
 
     Mysnackbar.show(context, responseApi.message);
 
+    MySnackbar.show(context, responseApi.message);
+    
     print('Respuesta: ${responseApi.toJson()}');
-    print(email);
-    print(name);
-    print(lastname);
-    print(phone);
-    print(password);
-    print(confirmPassword);
   }
   void back(){
     Navigator.pop(context);
