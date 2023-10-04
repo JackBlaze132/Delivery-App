@@ -9,11 +9,11 @@ types.setTypeParser(1114,function(stringValue){
     return stringValue;
 });
 const databasteConfig = {
-    'host': '127.0.0.1',
+    'host': 'db.freqcrpltohigmsjngqt.supabase.co',
     'port': 5432,
     'database': 'delivery_db',
     'user': 'postgres',
-    'password': 'admin'
+    'password': 'GzYkssy0fCBWulFd'
 }
 
 const db = pgp(databasteConfig);
