@@ -5,7 +5,7 @@ const Rol = {};
 Rol.create = (id_user, id_rol) => {
     const sql = `
     INSERT INTO
-        users_has_roles(
+        user_has_roles(
             id_user,
             id_rol,
             created_at,
