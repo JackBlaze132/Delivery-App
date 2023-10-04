@@ -65,9 +65,14 @@ class RegisterController{
       Future.delayed(Duration(seconds: 3), () {
         Navigator.pushReplacementNamed(context, 'login');
       });
+
+      print('Respuesta: ${responseApi.toJson()}');
     }
 
-    print('Respuesta: ${responseApi.toJson()}');
+      void back(){
+      Navigator.pop(context);
+      }
+
     print(email);
     print(name);
     print(lastname);
