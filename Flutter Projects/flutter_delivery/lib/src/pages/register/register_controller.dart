@@ -42,8 +42,6 @@ class RegisterController{
 
     ResponseApi responseApi = await usersProvider.create(user);
 
-    Mysnackbar.show(context, responseApi.message);
-
     MySnackbar.show(context, responseApi.message);
     
     print('Respuesta: ${responseApi.toJson()}');
