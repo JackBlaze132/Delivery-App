@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_delivery/src/pages/client/products/list/client_products_list_page.dart';
 import 'package:flutter_delivery/src/pages/login/login_page.dart';
 import 'package:flutter_delivery/src/pages/register/register_page.dart';
+import 'package:flutter_delivery/src/pages/roles/roles.page.dart';
 import 'package:flutter_delivery/src/utils/custom_colors.dart';
 
 void main() {
@@ -15,8 +16,8 @@ class MyApp extends StatefulWidget {
   State<MyApp> createState() => _MyAppState();
 }
 
-class _MyAppState extends State<MyApp> {
 
+class _MyAppState extends State<MyApp> {
   /*Widget build(BuildContext context){
    return Scaffold(
      body: Container(
@@ -27,10 +28,11 @@ class _MyAppState extends State<MyApp> {
   'assets/img/delivery.png',
   width: 200,
   height: 200,
+
   )
   ]
   )
-  ),
+  )
 
   );
 }*/
@@ -43,10 +45,14 @@ class _MyAppState extends State<MyApp> {
         routes: {
           'login': (BuildContext context) => LoginPage(),
           'register' :(BuildContext context) => RegisterPage(),
+          'roles': (BuildContext context) => RolesPage()
           'client/products/list': (BuildContext context) => ClientProductsListPage()
+          'restaurant/products/list': (BuildContext context) => RestaurantOrdersListPage()
+          'delivery/products/list': (BuildContext context) => DeliveryOrdersListPage()
         },
         theme: ThemeData(
-            primaryColor: CustomColors.primaryColor
+          colorScheme: ColorScheme.light(,
+            primary: MyColors.primaryColor
         )
     );
   }

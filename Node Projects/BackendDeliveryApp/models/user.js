@@ -40,8 +40,9 @@ User.findByEmail = (email) => {
     FROM
         users
     WHERE
-        email = $1
+        email = 'gio@gmail.com'
     `;
+    
     return db.oneOrNone(sql,email);
 };
 
