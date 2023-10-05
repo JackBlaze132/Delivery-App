@@ -4,17 +4,16 @@ class RestaurantOrdersListPage extends StatefulWidget {
   const RestaurantOrdersListPage({Key key}) : super(key: key);
 
   @override
-  State<RestaurantOrdersListPage> createState() => _RestaurantOrdersListPageState(),
+  State<RestaurantOrdersListPage> createState() => _RestaurantOrdersListPageState();
 }
 
-class _RestaurantOrdersListPageState extends State<RestaurantOrdersListPageState> {
+class _RestaurantOrdersListPageState extends State<RestaurantOrdersListPage> {
   @override
-  Widget build(BuildContext context){
+  Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Text('Restaurant Orders List'),
+        child: Text('Restaurant orders list'),
       ),
     );
   }
-
 }

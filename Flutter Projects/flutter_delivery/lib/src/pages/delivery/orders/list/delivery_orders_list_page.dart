@@ -12,7 +12,7 @@ class _DeliveryOrdersListPageState extends State<DeliveryOrdersListPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Text('Delivery Orders List'),
+        child: Text('Delivery orders list')
       ),
     );
   }

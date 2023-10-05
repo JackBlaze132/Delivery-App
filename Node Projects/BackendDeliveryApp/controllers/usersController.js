@@ -1,7 +1,7 @@
 const User = require('../models/user');
-const Rol = require("../models/rol");
-const jwt = require("jsonwebtoken");
-const Keys = require("../config/keys");
+const Rol = require('../models/rol');
+const jwt = require('jsonwebtoken');
+const keys = require('../config/keys');
 
 module.exports = {
     async getAll(req, res, next){
