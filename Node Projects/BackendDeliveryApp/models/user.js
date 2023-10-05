@@ -49,7 +49,7 @@ User.findByEmail = (email) => {
     FROM
         users AS U
 	INNER JOIN
-		users_has_roles AS UHR
+		user_has_roles AS UHR
 	ON 
 		UHR.id_user = U.id
 	INNER JOIN

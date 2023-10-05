@@ -48,9 +48,11 @@ class LoginController{
 
       if(user.roles.length > 1){
         Navigator.pushNamedAndRemoveUntil(context, 'roles', (route) => false);
+        print(user.roles.toString());
       }
       else{
         Navigator.pushNamedAndRemoveUntil(context, user.roles[0].route, (route) => false);
+        print(user.roles.toString());
       }
     }
     else{
