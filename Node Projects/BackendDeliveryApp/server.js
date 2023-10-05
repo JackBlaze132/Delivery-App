@@ -29,7 +29,7 @@ app.set('port', port);
 
 users(app);
 
-server.listen(3000, '192.168.1.19' || 'localhost', function(){
+server.listen(3000, '192.168.1.19' || 'db.freqcrpltohigmsjngqt.supabase.co', function(){
     console.log('Aplicacion de NodeJs ' + port + ' Iniciada...')
 })
 

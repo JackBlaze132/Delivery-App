@@ -1,4 +1,5 @@
 const User = require('../models/user');
+const Rol = require('../models/rol');
 const jwt = require('jsonwebtoken');
 const keys = require('../config/keys');
 
@@ -23,6 +24,7 @@ module.exports = {
 
             const user = req.body;
             const data = await User.create(user);
+            await Rol.create(data.id, 1);
 
             return res.status(201).json({
                 success: true,
