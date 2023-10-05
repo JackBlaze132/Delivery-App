@@ -18,8 +18,8 @@ class MyApp extends StatefulWidget {
   State<MyApp> createState() => _MyAppState();
 }
 
-
 class _MyAppState extends State<MyApp> {
+
   /*Widget build(BuildContext context){
    return Scaffold(
      body: Container(
@@ -30,11 +30,10 @@ class _MyAppState extends State<MyApp> {
   'assets/img/delivery.png',
   width: 200,
   height: 200,
-
   )
   ]
   )
-  )
+  ),
 
   );
 }*/
@@ -46,13 +45,17 @@ class _MyAppState extends State<MyApp> {
         initialRoute:'login',
         routes: {
           'login': (BuildContext context) => LoginPage(),
-          'register' :(BuildContext context) => RegisterPage(),
-          'client/products/list': (BuildContext context) => ClientProductsListPage()
+          'register': (BuildContext context) => RegisterPage(),
+          'roles': (BuildContext context) => RolesPage(),
+          'client/products/list': (BuildContext context) => ClientProductsListPage(),
+          'restaurant/orders/list': (BuildContext context) => RestaurantOrdersListPage(),
+          'delivery/orders/list': (BuildContext context) => DeliveryOrdersListPage()
         },
         theme: ThemeData(
-            primaryColor: CustomColors.primaryColor
+          colorScheme: ColorScheme.light(
+              primary: CustomColors.primaryColor
+          ),
         )
     );
   }
 }
-
