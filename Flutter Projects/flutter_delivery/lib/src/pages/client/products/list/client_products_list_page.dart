@@ -106,6 +106,23 @@ class _ClientProductsListPageState extends State<ClientProductsListPage> {
                 )
               ],
             ),
+          ),
+          ListTile(
+            title: Text('Editar perfil'),
+            trailing: Icon(Icons.edit_outlined),
+          ),
+          ListTile(
+            title: Text('Mis pedidos'),
+            trailing: Icon(Icons.shopping_cart_outlined),
+          ),
+          ListTile(
+            title: Text('Seleccionar rol'),
+            trailing: Icon(Icons.person_outline),
+          ),
+          ListTile(
+            onTap: _con.logout,
+            title: Text('Cerrar sesión'),
+            trailing: Icon(Icons.power_settings_new_outlined),
           )
         ],
       ),
