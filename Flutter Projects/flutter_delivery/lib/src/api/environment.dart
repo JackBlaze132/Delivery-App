@@ -1,4 +1,4 @@
 class Environment
 {
-  static const String API_DELIVERY = "172.27.112.1:3000";
+  static const String API_DELIVERY = "192.168.56.1:3000";
 }
