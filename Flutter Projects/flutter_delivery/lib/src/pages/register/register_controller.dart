@@ -68,6 +68,33 @@ class RegisterController{
     print('Respuesta: ${responseApi.toJson()}');
   }
 
+  void showAlertDialog(){
+    Widget galleryButton = ElevatedButton(
+        onPressed: (){},
+        child: Text('GALERIA')
+    );
+
+    Widget cameraButton = ElevatedButton(
+        onPressed: (){},
+        child: Text('GALERIA')
+    );
+
+    AlertDialog alertDialog = AlertDialog(
+      title: Text('Selecciona tu imagen'),
+      actions: [
+        galleryButton,
+        cameraButton
+      ],
+    );
+
+    showDialog(
+      context: context,
+      builder: (BuildContext context){
+        return alertDialog;
+      }
+    );
+  }
+
   void  goToLoginPage(){
     Navigator.pushNamed(context, 'login');
   }

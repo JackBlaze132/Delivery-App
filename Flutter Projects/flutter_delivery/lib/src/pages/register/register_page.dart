@@ -68,10 +68,13 @@ class _RegisterPageState extends State<RegisterPage> {
   }
 
   Widget _imageUSer(){
-    return CircleAvatar(
-      backgroundImage: AssetImage('assets/img/user_profile_2.png'),
-      radius: 60,
-      backgroundColor: Colors.grey[200],
+    return GestureDetector(
+      onTap: _con.showAlertDialog,
+      child: CircleAvatar(
+        backgroundImage: AssetImage('assets/img/user_profile_2.png'),
+        radius: 60,
+        backgroundColor: Colors.grey[200],
+      ),
     );
   }
 

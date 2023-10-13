@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "949569694372",
+    "project_id": "delivery-app-bb9a5",
+    "storage_bucket": "delivery-app-bb9a5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:949569694372:android:2390039bb1a4533e075431",
+        "android_client_info": {
+          "package_name": "com.optic.flutter_delivery"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCudf8j1BMgAQ-_sE_jQkQ_Fyh5ssBBynE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
