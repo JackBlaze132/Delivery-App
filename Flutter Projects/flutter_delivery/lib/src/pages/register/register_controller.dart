@@ -1,8 +1,11 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_delivery/src/models/response_api.dart';
 import 'package:flutter_delivery/src/provider/user_provider.dart';
 import 'package:flutter_delivery/src/utils/my_snackbar.dart';
+import 'package:image_picker/image_picker.dart';
 
 import '../../models/user.dart';
 
@@ -19,8 +22,13 @@ class RegisterController{
 
   UserProvider usersProvider = new UserProvider();
 
-  Future init(BuildContext context){
+  XFile xFile;
+  File imageFile;
+  Function refresh;
+
+  Future init(BuildContext context, Function refresh){
     this.context = context;
+    this.refresh = refresh;
     usersProvider.init(context);
   }
 
@@ -68,14 +76,27 @@ class RegisterController{
     print('Respuesta: ${responseApi.toJson()}');
   }
 
+  Future selectImage(ImageSource imageSource) async{
+    xFile = await ImagePicker().pickImage(source: imageSource);
+    if(xFile != null){
+      imageFile = File(xFile.path);
+    }
+    Navigator.pop(context);
+    refresh();
+}
+
   void showAlertDialog(){
     Widget galleryButton = ElevatedButton(
-        onPressed: (){},
+        onPressed: (){
+          selectImage(ImageSource.gallery);
+        },
         child: Text('GALERIA')
     );
 
     Widget cameraButton = ElevatedButton(
-        onPressed: (){},
+        onPressed: (){
+          selectImage(ImageSource.camera);
+        },
         child: Text('GALERIA')
     );
 

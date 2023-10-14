@@ -18,7 +18,7 @@ class _RegisterPageState extends State<RegisterPage> {
   void initState(){
     super.initState();
     SchedulerBinding.instance.addPostFrameCallback((timeStamp) {
-      _con.init(context);
+      _con.init(context, refresh);
     });
   }
   @override
@@ -71,7 +71,9 @@ class _RegisterPageState extends State<RegisterPage> {
     return GestureDetector(
       onTap: _con.showAlertDialog,
       child: CircleAvatar(
-        backgroundImage: AssetImage('assets/img/user_profile_2.png'),
+        backgroundImage: _con.imageFile != null
+        ? FileImage(_con.imageFile)
+        : AssetImage('assets/img/user_profile_2.png'),
         radius: 60,
         backgroundColor: Colors.grey[200],
       ),
@@ -277,5 +279,11 @@ class _RegisterPageState extends State<RegisterPage> {
         fontWeight: FontWeight.bold
       ),
     );
+  }
+
+  void refresh(){
+    setState(() {
+
+    });
   }
 }
