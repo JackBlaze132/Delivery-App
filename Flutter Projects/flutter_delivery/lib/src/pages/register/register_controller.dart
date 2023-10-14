@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
@@ -55,6 +56,11 @@ class RegisterController{
       return;
     }
 
+    if(imageFile == null){
+      MySnackbar.show(context, 'Seleccione una imagen');
+      return;
+    }
+
     User user = new User(
       email: email,
       name: name,
@@ -63,17 +69,19 @@ class RegisterController{
       password: password
     );
 
-    ResponseApi responseApi = await usersProvider.create(user);
+    Stream stream = await usersProvider.createWithImage(user, imageFile);
+    stream.listen((res) {
+      ResponseApi responseApi = ResponseApi.fromJson(json.decode(res));
+      print('Respuesta: ${responseApi.toJson()}');
+      MySnackbar.show(context, responseApi.message);
 
-    MySnackbar.show(context, responseApi.message);
+      if(responseApi.success){
+        Future.delayed(Duration(seconds: 3), () {
+          Navigator.pushReplacementNamed(context, 'login');
+        });
+      }
+    });
 
-    if(responseApi.success){
-      Future.delayed(Duration(seconds: 3), () {
-        Navigator.pushReplacementNamed(context, 'login');
-      });
-    }
-    
-    print('Respuesta: ${responseApi.toJson()}');
   }
 
   Future selectImage(ImageSource imageSource) async{
