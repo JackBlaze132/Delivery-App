@@ -250,7 +250,7 @@ class _RegisterPageState extends State<RegisterPage> {
       width: double.infinity,
       margin: EdgeInsets.symmetric(horizontal: 50, vertical: 30),
       child: ElevatedButton(
-        onPressed: _con.register,
+        onPressed: _con.isEnable ? _con.register : null,
         style: ElevatedButton.styleFrom(
           backgroundColor: CustomColors.primaryColor,
           shape: RoundedRectangleBorder(
