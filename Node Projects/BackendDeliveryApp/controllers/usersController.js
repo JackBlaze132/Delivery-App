@@ -82,6 +82,42 @@ module.exports = {
         }
     },
 
+    async update(req, res, next) {
+        try{
+
+            const user = JSON.parse(req.body.user);
+
+            console.log(`Datos enviados del usuario ${JSON.stringify(user)}`);
+
+            const files = req.files;
+
+            if(files.length > 0){
+                const pathImage = `image_${Date.now()}`; //Nombre del archivo
+                const url = await storage(files[0], pathImage);
+
+                if(url != undefined && url != null){
+                    user.image = url;
+                }
+            }
+
+            await User.update(user);
+
+            return res.status(201).json({
+                success: true,
+                message: 'Los datos del usuario se actualizaron de forma correcta'
+            });
+
+        }
+    catch (error){
+        console.log(`Error: ${error}`);
+        return res.status(501).json({
+            success: false,
+            message: 'Hubo un error con la actualizacion de datos del usuarios',
+            error: error
+        });
+        }
+    },
+
     async login(req, res, next){
         try{
             const email = req.body.email;

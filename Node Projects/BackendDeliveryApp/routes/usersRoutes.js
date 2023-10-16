@@ -10,4 +10,7 @@ module.exports = (app, upload) => {
 
     //Autenticar usuario
     app.post('/api/users/login', UsersController.login);
+
+    //Actualizar datos
+    app.put('/api/users/update', upload.array('image',1), UsersController.update);
 }

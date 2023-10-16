@@ -6,6 +6,7 @@ import 'package:flutter_delivery/src/models/response_api.dart';
 import 'package:flutter_delivery/src/provider/user_provider.dart';
 import 'package:flutter_delivery/src/utils/my_snackbar.dart';
 import 'package:flutter_delivery/src/utils/shared_pref.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:sn_progress_dialog/sn_progress_dialog.dart';
 
@@ -44,7 +45,7 @@ class ClientUpdateController{
     refresh();
   }
 
-  void register() async{
+  void update() async{
     String name = nameController.text.trim();
     String lastname = lastnameController.text.trim();
     String phone = phoneController.text.trim();
@@ -63,25 +64,24 @@ class ClientUpdateController{
     _progressDialog.show(max: 100, msg: 'Espere un momento');
     isEnable = false;
 
-    User user = new User(
+    User myUser = new User(
+        id: user.id,
         name: name,
         lastname: lastname,
         phone: phone,
     );
 
-    Stream stream = await usersProvider.createWithImage(user, imageFile);
+    Stream stream = await usersProvider.update(myUser, imageFile);
     stream.listen((res) {
 
       _progressDialog.close();
 
       ResponseApi responseApi = ResponseApi.fromJson(json.decode(res));
       print('Respuesta: ${responseApi.toJson()}');
-      MySnackbar.show(context, responseApi.message);
+      Fluttertoast.showToast(msg: responseApi.message);
 
       if(responseApi.success){
-        Future.delayed(Duration(seconds: 3), () {
-          Navigator.pushReplacementNamed(context, 'login');
-        });
+        Navigator.pushNamedAndRemoveUntil(context, 'client/products/list', (route) => false);
       }
       else{
         isEnable = true;
