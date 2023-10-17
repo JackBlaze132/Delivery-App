@@ -20,6 +20,22 @@ module.exports = {
         }
     },
 
+    async findById(req, res, next){
+        try{
+            const id = req.params.id;
+            const data = await User.findByUserId(id);
+            console.log(`Usuario: ${data}`);
+            return res.status(201).json(data);
+        }
+        catch (error){
+            console.log(`Error: ${error}`);
+            return res.status(501).json({
+                succesfull: false,
+                message: 'Error al obtener el usuario por su id'
+            });
+        }
+    },
+
     async register(req, res, next) {
         try{
 

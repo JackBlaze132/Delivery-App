@@ -72,7 +72,7 @@ class ClientUpdateController{
     );
 
     Stream stream = await usersProvider.update(myUser, imageFile);
-    stream.listen((res) {
+    stream.listen((res) async{
 
       _progressDialog.close();
 
@@ -81,6 +81,9 @@ class ClientUpdateController{
       Fluttertoast.showToast(msg: responseApi.message);
 
       if(responseApi.success){
+        user = await usersProvider.getById(myUser.id);
+        _sharedPref.save('user', user.toJson());
+
         Navigator.pushNamedAndRemoveUntil(context, 'client/products/list', (route) => false);
       }
       else{

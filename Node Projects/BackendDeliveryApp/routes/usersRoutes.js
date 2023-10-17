@@ -5,6 +5,9 @@ module.exports = (app, upload) => {
     //Traer datos
     app.get("/api/users/getAll", UsersController.getAll);
 
+    //Traer datos del usuario en sesion
+    app.get("/api/users/findById/:id", UsersController.findById);
+
     //Guardar datos
     app.post('/api/users/create', upload.array('image',1), UsersController.registerWithImage);
 
