@@ -2,6 +2,7 @@ const User = require('../models/user');
 const Rol = require('../models/rol');
 const jwt = require('jsonwebtoken');
 const keys = require('../config/keys');
+const storage = require('../utils/cloud_storage');
 
 module.exports = {
     async getAll(req, res, next){
@@ -15,6 +16,22 @@ module.exports = {
             return res.status(501).json({
                 succesfull: false,
                 message: 'Error al obtener los usuarios'
+            });
+        }
+    },
+
+    async findById(req, res, next){
+        try{
+            const id = req.params.id;
+            const data = await User.findByUserId(id);
+            console.log(`Usuario: ${data}`);
+            return res.status(201).json(data);
+        }
+        catch (error){
+            console.log(`Error: ${error}`);
+            return res.status(501).json({
+                succesfull: false,
+                message: 'Error al obtener el usuario por su id'
             });
         }
     },
@@ -38,6 +55,80 @@ module.exports = {
         return res.status(501).json({
             success: false,
             message: 'Hubo un error con el registro del usuario',
+            error: error
+        });
+        }
+    },
+
+    async registerWithImage(req, res, next) {
+        try{
+
+            const user = JSON.parse(req.body.user);
+
+            console.log(`Datos enviados del usuario ${user}`);
+
+            const files = req.files;
+
+            if(files.length > 0){
+                const pathImage = `image_${Date.now()}`; //Nombre del archivo
+                const url = await storage(files[0], pathImage);
+
+                if(url != undefined && url != null){
+                    user.image = url;
+                }
+            }
+
+            const data = await User.create(user);
+            await Rol.create(data.id, 1);
+
+            return res.status(201).json({
+                success: true,
+                message: 'El registro se realizo correctamente, ahora inicia sesion',
+                data: data.id
+            });
+
+        }
+    catch (error){
+        console.log(`Error: ${error}`);
+        return res.status(501).json({
+            success: false,
+            message: 'Hubo un error con el registro del usuario',
+            error: error
+        });
+        }
+    },
+
+    async update(req, res, next) {
+        try{
+
+            const user = JSON.parse(req.body.user);
+
+            console.log(`Datos enviados del usuario ${JSON.stringify(user)}`);
+
+            const files = req.files;
+
+            if(files.length > 0){
+                const pathImage = `image_${Date.now()}`; //Nombre del archivo
+                const url = await storage(files[0], pathImage);
+
+                if(url != undefined && url != null){
+                    user.image = url;
+                }
+            }
+
+            await User.update(user);
+
+            return res.status(201).json({
+                success: true,
+                message: 'Los datos del usuario se actualizaron de forma correcta'
+            });
+
+        }
+    catch (error){
+        console.log(`Error: ${error}`);
+        return res.status(501).json({
+            success: false,
+            message: 'Hubo un error con la actualizacion de datos del usuarios',
             error: error
         });
         }
