@@ -18,7 +18,7 @@ class _RegisterPageState extends State<RegisterPage> {
   void initState(){
     super.initState();
     SchedulerBinding.instance.addPostFrameCallback((timeStamp) {
-      _con.init(context);
+      _con.init(context, refresh);
     });
   }
   @override
@@ -68,10 +68,15 @@ class _RegisterPageState extends State<RegisterPage> {
   }
 
   Widget _imageUSer(){
-    return CircleAvatar(
-      backgroundImage: AssetImage('assets/img/user_profile_2.png'),
-      radius: 60,
-      backgroundColor: Colors.grey[200],
+    return GestureDetector(
+      onTap: _con.showAlertDialog,
+      child: CircleAvatar(
+        backgroundImage: _con.imageFile != null
+        ? FileImage(_con.imageFile)
+        : AssetImage('assets/img/user_profile_2.png'),
+        radius: 60,
+        backgroundColor: Colors.grey[200],
+      ),
     );
   }
 
@@ -225,7 +230,7 @@ class _RegisterPageState extends State<RegisterPage> {
         controller: _con.confirmPasswordController,
         obscureText: true,
         decoration: InputDecoration(
-            hintText: 'Contraseña',
+            hintText: 'Confirmar contraseña',
             border: InputBorder.none,
             contentPadding: EdgeInsets.all(15),
             hintStyle: TextStyle(
@@ -245,7 +250,7 @@ class _RegisterPageState extends State<RegisterPage> {
       width: double.infinity,
       margin: EdgeInsets.symmetric(horizontal: 50, vertical: 30),
       child: ElevatedButton(
-        onPressed: _con.register,
+        onPressed: _con.isEnable ? _con.register : null,
         style: ElevatedButton.styleFrom(
           backgroundColor: CustomColors.primaryColor,
           shape: RoundedRectangleBorder(
@@ -260,7 +265,7 @@ class _RegisterPageState extends State<RegisterPage> {
 
   Widget _backIcon(){
     return IconButton(
-      onPressed: (){},
+      onPressed: _con.goToLoginPage,
       icon: Icon(Icons.arrow_back_ios_rounded, color: Colors.white,),
     );
   }
@@ -274,5 +279,11 @@ class _RegisterPageState extends State<RegisterPage> {
         fontWeight: FontWeight.bold
       ),
     );
+  }
+
+  void refresh(){
+    setState(() {
+
+    });
   }
 }
