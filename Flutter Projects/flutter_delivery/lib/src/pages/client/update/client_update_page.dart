@@ -152,7 +152,7 @@ class _ClientUpdatePageState extends State<ClientUpdatePage> {
           ),
           padding: EdgeInsets.all(23),
         ),
-        child: Text('Actualizar perfil'),
+        child: Text('ACTUALIZAR PERFIL'),
       ),
     );
   }

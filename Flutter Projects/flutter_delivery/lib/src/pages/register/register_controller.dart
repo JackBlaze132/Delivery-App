@@ -111,14 +111,14 @@ class RegisterController{
         onPressed: (){
           selectImage(ImageSource.gallery);
         },
-        child: Text('GALERIA')
+        child: Text('GALERíA')
     );
 
     Widget cameraButton = ElevatedButton(
         onPressed: (){
           selectImage(ImageSource.camera);
         },
-        child: Text('GALERIA')
+        child: Text('CÁMARA')
     );
 
     AlertDialog alertDialog = AlertDialog(

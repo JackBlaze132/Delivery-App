@@ -230,7 +230,7 @@ class _RegisterPageState extends State<RegisterPage> {
         controller: _con.confirmPasswordController,
         obscureText: true,
         decoration: InputDecoration(
-            hintText: 'Contraseña',
+            hintText: 'Confirmar contraseña',
             border: InputBorder.none,
             contentPadding: EdgeInsets.all(15),
             hintStyle: TextStyle(

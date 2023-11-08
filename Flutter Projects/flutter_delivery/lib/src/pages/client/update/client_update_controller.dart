@@ -107,14 +107,15 @@ class ClientUpdateController{
         onPressed: (){
           selectImage(ImageSource.gallery);
         },
-        child: Text('GALERIA')
+        child: Text('GALERÍA')
+        
     );
 
     Widget cameraButton = ElevatedButton(
         onPressed: (){
           selectImage(ImageSource.camera);
         },
-        child: Text('GALERIA')
+        child: Text('CÁMARA')
     );
 
     AlertDialog alertDialog = AlertDialog(
