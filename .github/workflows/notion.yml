@@ -8,7 +8,7 @@ jobs:
     steps:
       - name: NotionHook
         id: notion
-        uses: alessandrobelli/NotionHook@1.1
+        uses: alessandrobelli/NotionHook@1.0
         with:
           notion_secret: ${{ secrets.NOTION_SECRET }}
           notion_database: ${{ secrets.NOTION_DATABASE }}
