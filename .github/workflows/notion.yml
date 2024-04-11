@@ -6,7 +6,7 @@ jobs:
     runs-on: ubuntu-latest
     name: A job to connect to Notion
     steps:
-      - name: Connect to Notion step
+      - name: NotionHook
         id: notion
         uses: alessandrobelli/NotionHook@1.1
         with:
